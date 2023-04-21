@@ -35,6 +35,7 @@ const httpLink = concat(
 );
 
 export const apolloClient = new ApolloClient({
+  // use wsLink for subscription and httpLink for query and mutation via http
   link: split(isSubscription, wsLink, httpLink),
   cache: new InMemoryCache(),
 });
